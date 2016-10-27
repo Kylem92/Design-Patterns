@@ -10,13 +10,13 @@ package com.kyle;
  *
  * @author t00174978
  */
-public class Human {
+public class Cat {
     private String name;
     private String gender;
     private int age;
     private String species;
     
-    public Human(String name, String gender, int age, String species){
+    public Cat(String name, String gender, int age, String species){
         setName(name);
         setGender(gender);
         setAge(age);
@@ -37,10 +37,7 @@ public class Human {
     }
 
     private void setSpecies(String species) {
-        this.species="Human";
+        this.species="Cat";
     }
-    
-    
-    
     
 }
