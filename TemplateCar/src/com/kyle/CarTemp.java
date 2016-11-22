@@ -10,6 +10,7 @@ package com.kyle;
  * that has been ordered by a customer or to leave this method until a later date.
  */
 public abstract class CarTemp {
+    Colour colour;
 
     final void constructCar()
     {
@@ -18,31 +19,42 @@ public abstract class CarTemp {
         addWheels();
         addEngine();
         addShell();
-        addColour();
+        if(colourWanted())
+        {
+            addColour();
+        }
     }
 
-    void addChasis()
-    {
-
+    boolean colourWanted() {
+        return true;
     }
 
-    void addAxels()
+    final void addChasis() // final so subclass cant override it
     {
-
+        System.out.println("Chasis has been built");
     }
 
-    void addWheels()
+    final void addAxels()
     {
-
+        System.out.println("Axels added to chasis");
     }
 
-    void addEngine()
+    final void addWheels()
     {
+        System.out.println("Wheels added to axels");
+    }
 
+    final void addEngine()
+    {
+        System.out.println("Engine added to chasis");
     }
 
     abstract void addShell();
 
-    void addColour(){} //hook
+    abstract void addColour();//hook
+
+    public void setColour(Colour colour){
+        this.colour = colour;
+    }
 
 }
