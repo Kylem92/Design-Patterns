@@ -1,5 +1,9 @@
 package com.kyle;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * Created by Kyle on 22/11/2016.
  * this programme is to help the construction
@@ -10,10 +14,9 @@ package com.kyle;
  * that has been ordered by a customer or to leave this method until a later date.
  */
 public abstract class CarTemp {
-    Colour colour;
+    private Colour colour;
 
-    final void constructCar()
-    {
+    final void constructCar() throws IOException {
         addChasis();
         addAxels();
         addWheels();
@@ -21,39 +24,73 @@ public abstract class CarTemp {
         addShell();
         if(colourWanted())
         {
+
             addColour();
         }
     }
 
-    boolean colourWanted() {
-        return true;
+    private boolean colourWanted() {
+        String answer = getAnswer();
+
+        return answer.toLowerCase().startsWith("y");
+
     }
 
-    final void addChasis() // final so subclass cant override it
-    {
-        System.out.println("Chasis has been built");
+    private String getAnswer(){
+        String answer = null;
+        System.out.println("Does this car need to be painted? ");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            answer = in.readLine();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (answer == null) {
+            return "no";
+        }
+        return answer;
+
     }
 
-    final void addAxels()
+    private final void addChasis() // final so subclass cant override it
     {
-        System.out.println("Axels added to chasis");
+        System.out.println("Chasis has been built\n");
     }
 
-    final void addWheels()
+    private final void addAxels()
     {
-        System.out.println("Wheels added to axels");
+        System.out.println("Axels added to chasis\n");
     }
 
-    final void addEngine()
+    private final void addWheels()
     {
-        System.out.println("Engine added to chasis");
+        System.out.println("Wheels added to axels\n");
+    }
+
+    private final void addEngine()
+    {
+        System.out.println("Engine added to chasis\n");
     }
 
     abstract void addShell();
 
-    abstract void addColour();//hook
+    private void addColour() throws IOException {System.out.println("Pick colour! ");
 
-    public void setColour(Colour colour){
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String choice = in.readLine();
+
+        if (choice.equalsIgnoreCase("Black")) {
+            setColour(new Black());
+            colour.sprayPaint();
+        }
+        else if (choice.equalsIgnoreCase("White")) {
+            setColour(new White());
+            colour.sprayPaint();
+        }
+    }//this was my intended hook method
+
+    private void setColour(Colour colour){
         this.colour = colour;
     }
 

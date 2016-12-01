@@ -1,28 +1,38 @@
 package com.kyle;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 /**
- * Created by Amanda on 22/11/2016.
+ * Created by Kyle on 22/11/2016.
  */
-public class Volkswagen extends CarTemp {
+class Volkswagen extends CarTemp {
 
     @Override
     void addShell() {
-        System.out.println("Added Volkswagen shell");
+        System.out.println("Added Volkswagen shell\n");
     }
 
-    @Override
-    void addColour() {
-        System.out.println("Pick a colour.... Strategy pattern goes in here");
+   /* @Override
+    void addColour() throws IOException {
 
-    }
+        System.out.println("Pick colour! ");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String choice = in.readLine();
+
+        if (choice.equalsIgnoreCase("Black")) {
+            setColour(new Black());
+            colour.sprayPaint();
+        }
+        else if (choice.equalsIgnoreCase("White")) {
+            setColour(new White());
+            colour.sprayPaint();
+        }
+
+    }*/ //this method was implemtation of intended hook
+    // but due to the DRY principle i opted to put this in my CarTemp class
 
 
 
-    public boolean colourWanted() {
+   /* public boolean colourWanted() {
         String answer = getAnswer();
 
         if(answer.toLowerCase().startsWith("y"))
@@ -50,7 +60,7 @@ public class Volkswagen extends CarTemp {
         }
         return answer;
 
-    }
+    }*/
 
 }
 
