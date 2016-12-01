@@ -6,7 +6,7 @@ package State;
 public class TurnLeftState implements DriveState {
     @Override
     public void refuel() {
-        
+
     }
 
     @Override
