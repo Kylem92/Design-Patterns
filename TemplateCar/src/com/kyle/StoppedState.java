@@ -1,11 +1,9 @@
-package State;
-
-import State.DriveState;
+package com.kyle;
 
 /**
  * Created by t00174978 on 01/12/2016.
  */
-public class OutOfFuelState implements DriveState {
+public class StoppedState implements DriveState{
     @Override
     public void refuel() {
 
@@ -13,7 +11,7 @@ public class OutOfFuelState implements DriveState {
 
     @Override
     public void brake() {
-
+        System.out.println("Car is already stopped!");
     }
 
     @Override
@@ -23,11 +21,11 @@ public class OutOfFuelState implements DriveState {
 
     @Override
     public void turnLeft() {
-
+        System.out.println("Cannot turn left while car is stopped!");
     }
 
     @Override
     public void turnRight() {
-
+        System.out.println("Cannot turn right while car is stopped!");
     }
 }
