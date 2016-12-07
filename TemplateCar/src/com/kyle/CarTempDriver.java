@@ -16,13 +16,19 @@ public class CarTempDriver {
 
         System.out.println("\nTesting cars");
 
-        DriveState drivingState = new DrivingState();
+        StateFacade stateFacade = new StateFacade();
+        stateFacade.testDrivingState(vw);
+        stateFacade.testOutOfFuel(vw);
+        stateFacade.testStoppedState(vw);
+        stateFacade.testTurnLeft(vw);
+        stateFacade.testTurnRight(vw);
+       /* DriveState drivingState = new DrivingState();
         DriveState outOfFuelState = new OutOfFuelState();
         DriveState stoppedState = new StoppedState();
         DriveState turnLeftState = new TurnLeftState();
         DriveState turnRightState = new TurnRightState();
 
-        System.out.println("\nTesting car in driving state\n");
+
         vw.setCarState(drivingState);
         vw.refuel();
         vw.accelerate();
@@ -30,7 +36,7 @@ public class CarTempDriver {
         vw.turnRight();
         vw.brake();
 
-        System.out.println("\nTesting car in out of fuel state\n");
+
         vw.setCarState(outOfFuelState);
         vw.accelerate();
         vw.turnLeft();
@@ -38,7 +44,7 @@ public class CarTempDriver {
         vw.brake();
         vw.refuel();
 
-        System.out.println("\nTesting car in stopped state\n");
+
         vw.setCarState(stoppedState);
         vw.refuel();
         vw.accelerate();
@@ -46,7 +52,7 @@ public class CarTempDriver {
         vw.turnRight();
         vw.brake();
 
-        System.out.println("\nTesting car turn left state\n");
+
         vw.setCarState(turnLeftState);
         vw.refuel();
         vw.accelerate();
@@ -54,13 +60,13 @@ public class CarTempDriver {
         vw.turnRight();
         vw.brake();
 
-        System.out.println("\nTesting car turn right state");
+
         vw.setCarState(turnRightState);
         vw.refuel();
         vw.accelerate();
         vw.turnLeft();
         vw.turnRight();
-        vw.brake();
+        vw.brake();*/
 
 
 
