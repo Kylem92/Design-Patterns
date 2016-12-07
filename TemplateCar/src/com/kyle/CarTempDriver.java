@@ -11,6 +11,9 @@ public class CarTempDriver {
         Volkswagen vw = new Volkswagen();
         vw.constructCar();
 
+        RegistrationPlate reg = new RegistrationPlate(vw);
+        reg.addReg();
+
         System.out.println("\nTesting cars");
 
         DriveState drivingState = new DrivingState();

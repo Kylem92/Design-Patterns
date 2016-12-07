@@ -33,6 +33,8 @@ public abstract class CarTemp implements DriveState {
             e.printStackTrace();
         }
         getSpec(choice).addSpec();
+
+
         if(colourWanted()) { addColour();}
     }
 
@@ -136,4 +138,6 @@ public abstract class CarTemp implements DriveState {
         else if (choice.equalsIgnoreCase("Sportline")){return new Sportline();}
         else {return new Baseline();}
     }
+
+
 }
