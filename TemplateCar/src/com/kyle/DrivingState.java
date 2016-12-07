@@ -5,8 +5,6 @@ package com.kyle;
  */
 public class DrivingState implements DriveState {
 
-
-
     @Override
     public void refuel() {
         System.out.println("Car has sufficient fuel!");
@@ -24,11 +22,13 @@ public class DrivingState implements DriveState {
 
     @Override
     public void turnLeft() {
-        System.out.println("The car is driving straight!");
+        System.out.println("The car is driving left!");
     }
 
     @Override
     public void turnRight() {
-        System.out.println("The car is driving straight!");
+        System.out.println("The car is driving right!");
     }
+
+
 }

@@ -4,26 +4,14 @@ package com.kyle;
  * Created by Kyle on 22/11/2016.
  */
 class Volkswagen extends CarTemp {
-    private DriveState carState;
+
 
     @Override
     void addShell() {
         System.out.println("Added Volkswagen shell\n");
     }
 
-    public void setCarState(DriveState state)
-    {
-        this.carState=state;
-    }
 
-    public DriveState getState() {
-        return this.carState;
-    }
-
-    public void accelerate()
-    {
-        this.carState.accelerate();
-    }
 
 
 

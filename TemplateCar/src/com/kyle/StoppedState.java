@@ -6,7 +6,7 @@ package com.kyle;
 public class StoppedState implements DriveState{
     @Override
     public void refuel() {
-
+        System.out.println("Refueling");
     }
 
     @Override
@@ -16,6 +16,7 @@ public class StoppedState implements DriveState{
 
     @Override
     public void accelerate() {
+        System.out.println("Car is now moving");
 
     }
 

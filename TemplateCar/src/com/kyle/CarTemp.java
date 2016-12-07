@@ -13,8 +13,9 @@ import java.io.InputStreamReader;
  * I also will also use addColour as a hook as it will give Volkswagen to add the colour
  * that has been ordered by a customer or to leave this method until a later date.
  */
-public abstract class CarTemp {
+public abstract class CarTemp implements DriveState {
     private Colour colour;
+    private DriveState carState;
 
     final void constructCar() throws IOException {
         addChasis();
@@ -22,11 +23,17 @@ public abstract class CarTemp {
         addWheels();
         addEngine();
         addShell();
-        if(colourWanted())
-        {
-
-            addColour();
+        //factory
+        System.out.println("Choose the spec for this car! ");
+        String choice = null;
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            choice = in.readLine();
+        }catch (IOException e) {
+            e.printStackTrace();
         }
+        getSpec(choice).addSpec();
+        if(colourWanted()) { addColour();}
     }
 
     private boolean colourWanted() {
@@ -94,4 +101,39 @@ public abstract class CarTemp {
         this.colour = colour;
     }
 
+    public void setCarState(DriveState state)
+    {
+        this.carState=state;
+    }
+
+    public DriveState getState() {
+        return this.carState;
+    }
+
+    @Override
+    public void accelerate()
+    {
+        this.carState.accelerate();
+    }
+
+    @Override
+    public void brake() { this.carState.brake();}
+
+    @Override
+    public void refuel() {this.carState.refuel();}
+
+    @Override
+    public void turnLeft(){this.carState.turnLeft();}
+
+    @Override
+    public void turnRight(){this.carState.turnRight();}
+
+    public CarSpec getSpec(String choice)
+    {
+        if (choice.equalsIgnoreCase("Baseline")) {return new Baseline();}
+        else if (choice.equalsIgnoreCase("Comfortline")){return new Comfortline();}
+        else if (choice.equalsIgnoreCase("Highline")){return new Highline();}
+        else if (choice.equalsIgnoreCase("Sportline")){return new Sportline();}
+        else {return new Baseline();}
+    }
 }
