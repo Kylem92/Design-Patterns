@@ -130,7 +130,7 @@ public abstract class CarTemp implements DriveState {
     @Override
     public void turnRight(){this.carState.turnRight();}
 
-    public CarSpec getSpec(String choice)
+    private CarSpec getSpec(String choice)
     {
         if (choice.equalsIgnoreCase("Baseline")) {return new Baseline();}
         else if (choice.equalsIgnoreCase("Comfortline")){return new Comfortline();}

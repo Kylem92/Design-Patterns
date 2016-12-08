@@ -5,11 +5,13 @@ package com.kyle;
  */
 public class StateFacade {
     CarTemp carTest;
-    private DriveState drivingState;
-    private DriveState stoppedState;
-    private DriveState outFuel;
-    private DriveState leftState;
-    private DriveState rightState;
+    private final DriveState drivingState;
+    private final DriveState stoppedState;
+    private final DriveState outFuel;
+    private final DriveState leftState;
+    private final DriveState rightState;
+
+    private static  StateFacade instance;
 
     public StateFacade()
     {
@@ -21,54 +23,66 @@ public class StateFacade {
         rightState = new TurnRightState();
     }
 
+    public static synchronized StateFacade getInstance()
+    {if(instance == null){
+        instance = new StateFacade();
+    }
+        return instance;
+    }
+
     public void testDrivingState(CarTemp carTest)
     {
+        carTest.setCarState(drivingState);
         System.out.println("\nTesting car in driving state\n");
-        drivingState.refuel();
-        drivingState.accelerate();
-        drivingState.turnLeft();
-        drivingState.turnRight();
-        drivingState.brake();
+        carTest.refuel();
+        carTest.accelerate();
+        carTest.turnLeft();
+        carTest.turnRight();
+        carTest.brake();
     }
 
     public void testStoppedState(CarTemp carTest)
     {
+        carTest.setCarState(stoppedState);
         System.out.println("\nTesting car in stopped state\n");
-        stoppedState.refuel();
-        stoppedState.accelerate();
-        stoppedState.turnLeft();
-        stoppedState.turnRight();
-        stoppedState.brake();
+        carTest.refuel();
+        carTest.accelerate();
+        carTest.turnLeft();
+        carTest.turnRight();
+        carTest.brake();
     }
 
     public void testOutOfFuel(CarTemp carTest)
     {
+        carTest.setCarState(outFuel);
         System.out.println("\nTesting car in out of fuel state\n");
-        outFuel.accelerate();
-        outFuel.turnLeft();
-        outFuel.turnRight();
-        outFuel.brake();
-        outFuel.refuel();
+        carTest.accelerate();
+        carTest.turnLeft();
+        carTest.turnRight();
+        carTest.brake();
+        carTest.refuel();
     }
 
     public void testTurnRight(CarTemp carTest)
     {
+        carTest.setCarState(rightState);
         System.out.println("\nTesting car turn right state\n");
-        rightState.refuel();
-        rightState.accelerate();
-        rightState.turnLeft();
-        rightState.turnRight();
-        rightState.brake();
+        carTest.refuel();
+        carTest.accelerate();
+        carTest.turnLeft();
+        carTest.turnRight();
+        carTest.brake();
     }
 
     public void testTurnLeft(CarTemp carTest)
     {
+        carTest.setCarState(leftState);
         System.out.println("\nTesting car turn left state\n");
-        leftState.refuel();
-        leftState.accelerate();
-        leftState.turnLeft();
-        leftState.turnRight();
-        leftState.brake();
+        carTest.refuel();
+        carTest.accelerate();
+        carTest.turnLeft();
+        carTest.turnRight();
+        carTest.brake();
     }
 
 }

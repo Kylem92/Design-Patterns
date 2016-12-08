@@ -3,10 +3,10 @@ package com.kyle;
 /**
  * Created by t00174978 on 07/12/2016.
  */
-public abstract class RegDecorator {
-    CarTemp carTemp;
+abstract class RegDecorator {
+    private final CarTemp carTemp;
 
-    public RegDecorator(CarTemp temp) {
+    RegDecorator(CarTemp temp) {
         this.carTemp = temp;
     }
 
