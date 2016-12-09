@@ -24,17 +24,7 @@ public abstract class CarTemp implements DriveState {
         addEngine();
         addShell();
         //factory
-        System.out.println("Choose the spec for this car! ");
-        String choice = null;
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            choice = in.readLine();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        getSpec(choice).addSpec();
-
-
+        getSpec().addSpec();
         if(colourWanted()) { addColour();}
     }
 
@@ -130,8 +120,16 @@ public abstract class CarTemp implements DriveState {
     @Override
     public void turnRight(){this.carState.turnRight();}
 
-    private CarSpec getSpec(String choice)
+    private CarSpec getSpec()
     {
+        System.out.println("Choose the spec for this car! ");
+        String choice = null;
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            choice = in.readLine();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
         if (choice.equalsIgnoreCase("Baseline")) {return new Baseline();}
         else if (choice.equalsIgnoreCase("Comfortline")){return new Comfortline();}
         else if (choice.equalsIgnoreCase("Highline")){return new Highline();}

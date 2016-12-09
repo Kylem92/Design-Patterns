@@ -17,14 +17,15 @@ class CarTempDriver {
         System.out.println("\nTesting cars");
 
         StateFacade stateFacade = new StateFacade();
+        //StateFacade.getInstance();
         //StateFacade stateFacade = new StateFacade.getInstance(); doesnt recognise getInstance method???
         stateFacade.testDrivingState(vw);
         stateFacade.testOutOfFuel(vw);
         stateFacade.testStoppedState(vw);
         stateFacade.testTurnLeft(vw);
         stateFacade.testTurnRight(vw);
-       // StateFacade stateFacade1 = new StateFacade();
-       // stateFacade1.testDrivingState(vw);
+       //StateFacade stateFacade1 = new StateFacade();
+        //stateFacade1.testDrivingState(vw);
         //Audi car1 = new Audi();
         //car1.constructCar();
 

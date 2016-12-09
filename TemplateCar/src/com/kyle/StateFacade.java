@@ -39,6 +39,7 @@ public class StateFacade {
         carTest.turnLeft();
         carTest.turnRight();
         carTest.brake();
+        carTest.setCarState(stoppedState);
     }
 
     public void testStoppedState(CarTemp carTest)
@@ -46,10 +47,13 @@ public class StateFacade {
         carTest.setCarState(stoppedState);
         System.out.println("\nTesting car in stopped state\n");
         carTest.refuel();
-        carTest.accelerate();
+        carTest.brake();
         carTest.turnLeft();
         carTest.turnRight();
-        carTest.brake();
+        carTest.accelerate();
+        carTest.setCarState(drivingState);
+
+
     }
 
     public void testOutOfFuel(CarTemp carTest)
@@ -61,6 +65,7 @@ public class StateFacade {
         carTest.turnRight();
         carTest.brake();
         carTest.refuel();
+        carTest.setCarState(stoppedState);
     }
 
     public void testTurnRight(CarTemp carTest)
@@ -72,6 +77,7 @@ public class StateFacade {
         carTest.turnLeft();
         carTest.turnRight();
         carTest.brake();
+        carTest.setCarState(stoppedState);
     }
 
     public void testTurnLeft(CarTemp carTest)
@@ -83,6 +89,7 @@ public class StateFacade {
         carTest.turnLeft();
         carTest.turnRight();
         carTest.brake();
+        carTest.setCarState(stoppedState);
     }
 
 }
